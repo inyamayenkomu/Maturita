@@ -1,0 +1,12 @@
+Algoritmická složitost
+Algoritmická složitost je měřítko efektivity algoritmu, které popisuje, jak se časová nebo prostorová náročnost algoritmu mění v závislosti na velikosti vstupních dat.
+Obvykle se vyjadřuje pomocí velkého O notace (Big O notation), která poskytuje horní hranici růstu složitosti.
+
+Základní kategorie algoritmické složitosti zahrnují:
+O(1) - Konstantní čas: Čas potřebný k provedení algoritmu je nezávislý na velikosti vstupu. Příkladem je přístup k prvku v poli podle indexu.
+O(log n) - Logaritmický čas: Čas potřebný k provedení algoritmu roste logaritmicky s velikostí vstupu. Příkladem je binární vyhledávání.
+O(n) - Lineární čas: Čas potřebný k provedení algoritmu roste lineárně s velikostí vstupu. Příkladem je procházení všech prvků v seznamu.
+O(n log n) - Lineárně logaritmický čas: Čas potřebný k provedení algoritmu roste jako n log n. Příkladem jsou efektivní řadící algoritmy, jako je quicksort nebo mergesort.
+O(n^2) - Kvadratický čas: Čas potřebný k provedení algoritmu roste kvadraticky s velikostí vstupu. Příkladem jsou jednoduché řadící algoritmy, jako je bubble sort.
+
+Ukázka v grafu: https://portal.matematickabiologie.cz/index.php?pg=zaklady-informatiky-pro-biology--algoritmizace-a-programovani--algoritmus--slozitost-algoritmu

@@ -1,0 +1,56 @@
+// K větvení programu používáme klíčové slovo if, které umožňuje vykonat kód v závislosti na podmínce.
+{
+    if (true) // Pokud
+    {
+        // Tato větev se vždy vykoná.
+    }
+    else // Jinak
+    {
+        // Tato větev nikdy nenastane.
+    }
+}
+
+// Podmínka může obsahovat jakýkoliv výraz, který se vyhodnotí na logickou hodnotu (true nebo false).
+{
+    if (1 == 1) // 1 je rovno 1
+    {
+        // Tato větev se vždy vykoná.
+    }
+    else
+    {
+        // Tato větev nikdy nenastane.
+    }
+}
+
+// V podmínkách často používáme operátory rovnosti (==), nerovnosti (!=), větší než (>), menší než (<),
+// větší nebo rovno (>=) a menší nebo rovno (<=).
+{
+    if (1 != 2) // 1 není rovno 2
+    {
+        // Tato větev se vždy vykoná.
+    }
+    else
+    {
+        // Tato větev nikdy nenastane.
+    }
+}
+
+// Dalším typem větvení je příkaz switch, který umožňuje spojit několik if-else větví.
+{
+    int number = 1;
+
+    switch (number)
+    {
+        case 1:
+            // Tato větev se vykoná, pokud je number rovno 1.
+            break; // Přerušíme větvení.
+
+        case 2:
+            // Tato větev se vykoná, pokud je number rovno 2.
+            break; // Přerušíme větvení.
+
+        default:
+            // Tato větev se vykoná, pokud žádná předchozí větev nebyla splněna.
+            break; // Přerušíme větvení.
+    }
+}

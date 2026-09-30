@@ -1,0 +1,69 @@
+// Řadící (sorting) algoritmy slouží k seřazení vstupních dat v kolekci vzestupně nebo sestupně.
+// Z dnešního pohledu jsou to dost low-level algoritmy, které se ručně moc neprogramují. Naprostá většina programovacích jazyků
+// má řazení vyřešeno ve standartní knihovně.
+
+// V C# můžeš použít metodu Array.Sort() nebo List.Sort(), které používají algoritmus insertion sort, heap sort nebo
+// quick sort podle velikosti pole.
+
+// Ve výuce programování ale mají řadící algoritmy stále své místo, např. při výuce složitostí algoritmů.
+
+// Pro spoustu algoritmů je mít seřazená vstupní data důležité, např. pokud chceme vyhledávat v seznamu, práce s seřazeným polem
+// nám ušetří spoustu práce.
+
+// Vlastnoti řadících algoritmů:
+// Stabilita: prvky stejné velikosti si zachovají svoje původní řazení.
+// Adaptabilita: pokud jsou vstupní data předřazena, proběhne menší počet operací a algoritmus je rychlejší.
+// Online algoritmus: algoritmus dokáže řadit data, která přicházejí postupně.
+
+
+// Bubble sort (bublinkové řazení)
+// Princip bubble sortu spočívá v tom, že seřazená kolekce musí současně mít seřazeny všechny po sobě jdoucí dvojice.
+// Řadíme tedy všechny po sobě jdoucí dvojice do té doby, dokud nedojde k žádné změně - když se tak stane, víme, že je kolekce seřazena.
+// Bubble sortu se také říká sink sort, protože prvky stoupají nebo klesají na své místo.
+
+// Bubble má velké množství swap operací, ale je stabilní i adaptabilní.
+// Algoritmická složitost je O(n^2) - maximum, O(n^2) - průměr, O(n) - minimum.
+
+
+// Selection sort (řazení výběrem)
+// Selection sort je nejblíže naivní implementaci řazení. Prochází kolekci prvek po prvku a hledá vždy její nejmenší prvek.
+// Když ho najde, umístí ho na místo aktuálního nejmenšího prvku. V každé iteraci se tedy kolekce pro hledání nejmenšího prvku zmenšuje a 
+// index aktuálního nejmenšího prvku se zvětšuje.
+
+// Můžeme tomu tedy rozumnět i tak, že selection sort rozděluje kolekci na dvě části - seřazenou a neseřazenou. Seřazená část je zpočátku prázdná,
+// a v každé iteraci najdeme její další prvek. Algoritmus skončí, až je neseřazená část prázdná.
+
+// Selection sort není adaptabilní ani stabilní (ale existuje jeho stabilní - pomalejší verze).
+// Algoritmická složitost je O(n^2) - maximum, O(n^2) - průměr, O(n^2) - minimum.
+
+// Důkaz Nestability:
+// Mějme pole s hodnotami [5A,5B,2]. Hodnoty 5A a 5B mají stejnou hodnotu, ale jsou to jiné instance.
+// První iterace algoritmu najde nejmenší hodnotu v neseřazené části pole (což jsou všechny hodnoty). To je hodnota s indexem 2. Poté udělá swap i=0 - i = 2.
+// Žádné další swapy už se při řazení nestanou a pole je považováno za seřazené, ale jeho pořadí je ⁠[2, 5B, 5A]. 
+// Hodnoty A a B se vyměnili, takže selection sort není stabilní.
+
+
+// Insertion sort (řazení vkládáním)
+// Insertion sort prochází kolekci ve dvou směrech. Podobně jako selection sort rozděluje kolekci na seřazenou a neseřazenou část.
+// První cyklus prochází prvky sekvenčně, druhý cyklus prochází prvky v opačném směru a vkládá je na správné místo do seřazené části.
+
+// Insertion sort je králem mezi jednoduchými řadícím algoritmy. Je stabilní i adaptabilní. Nabízí kompromis mezi počtem porovnání a
+// swapů, ale je vhodný pouze na malá pole.
+// Algoritmická složitost je O(n^2) - maximum, O(n^2) - průměr, O(n) - minimum.
+
+// Insertion sort se dá použít i jako online algoritmus, protože dokáže řadit data, která přicházejí postupně (řazené pole se může v čase zvětšovat).
+
+
+// Quick sort
+// Quick sort je jeden z nejrychlejších řadících algoritmů. Je založen na principu rozděl a panuj.
+// Je to rekurzivní algoritmus, který v každém volání zvolí pivot hodnotu. Poté rozdělí kolekci na dvě části, kde levá je menší než
+// pivot a pravá větší. V každém volání tedy vlastně najdeme správnou pozici pro pivota.
+
+// Výběr pivota je důležitý, protože pokud bychom v každém volání zvolili nejmenší nebo největší prvek,
+// algoritmus by se zpomalil na kvadratickou složitost.
+// Nejjednoduší výběr pivota je zvolit střední hodnotu z pole. Existuje i varianta, který index pivota vybírá náhodně.
+
+// Quick sort není ani adaptabilní, ani stabilní. Ale díky metodě rozděl a panuj má průměrnou složitost O(n) = n * log n. Rozdělení
+// pole na dvě části má lineární složitost a log n je složitost postupného dělení na poloviny.
+// V nejhorším případě je ale složitost O(n) = n^2, pokud je pole již seřazené a zvolíme nejmenší nebo největší prvek jako pivot.
+// Průměrná složitost je také O(n) = n * log n.

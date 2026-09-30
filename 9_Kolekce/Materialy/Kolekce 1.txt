@@ -1,0 +1,164 @@
+﻿// Kolekce (kontejnery)
+{
+    // Kolekce jsou datové struktury, které umožňují agregovat více prvků do jednoho celku.
+    // Abstrahuje komplexitu práce s pamětí a umožňuje snadnější práci s daty přes jednoduché rozhraní.
+    // V C# nalezneme kolekce v namespace System.Collections a System.Collections.Generic.
+
+    // Kolekce mohou být homogenní a heterogenní:
+    // Homogenní kolekce obsahují prvky stejného typu.
+    // Heterogenní kolekce obsahují prvky různých typů.
+
+    // Lineární kolekce:
+    // Pole (array)
+    // Dynamické pole (dynamic array)
+    // Spojový seznam (linked list)
+    // Fronta (queue)
+    // Zásobník (stack)
+
+    // Další kolekce:
+    // Slovník (dictionary)
+    // Množina (set)
+    // Strom (tree)
+}
+
+// Pole (array)
+{
+    // Pole je jednoduchý lineární kontejner pro prvky stejného typu.
+    // Prvky jsou indexovány od nuly a jsou uloženy v paměti za sebou.
+    // Pole má pevnou velikost, která je určena při jeho vytvoření. Nelze tedy do pole vkládat nové prvky.
+
+    // Složitosti operací:
+    // Modifikace prvku na indexu: O(1).
+    // Přečtení prvku na indexu: O(1).
+
+    // V C# jsou pole implementována pomocí klíčového slova new a závorky [].
+    var pole = new int[10]; // Vytvoření pole o velikosti 10, všechny prvky budou mít defaultní hodnotu pro daný typ
+    pole[0] = 5; // Přiřazení hodnoty prvku na indexu 0
+    var hodnota = pole[0]; // Přečtení hodnoty prvku na indexu 0
+
+    // Při vytvoření pole můžeme definovat i jeho hodnoty. Velikost pole se pak určí dle počtu hodnot.
+    var pole2 = new int[] { 1, 2, 3, 4, 5 };
+}
+
+// Dynamické pole (dynamic array)
+{
+    // Dynamické pole řeší největší nevýhodu pole, a to jeho pevnou velikost. Umožňuje tedy vkládat/odebírat nové prvky dynamicky
+    // a zachovává pořadí prvků.
+
+    // Implementace dynamického pole je založena na obyčejném poli, které se při nedostatku místa překopíruje do nově vytvořeného
+    // většího pole a původní pole se uvolní.
+
+    // Složitosti operací:
+    // Vložení prvku na konec: O(1), pokud je dostatečná kapacita, jinak O(n). Při dlouhodobém běhu se kapacita amortizuje na O(1).
+    // Přečtení prvku na indexu: O(1).
+
+    // V C# je dynamické pole implementováno pomocí třídy List<T> z jmenného prostoru System.Collections.Generic.
+    var list = new List<int>(capacity: 10);
+    list.Add(5); // Vložení prvku na konec seznamu
+    var hodnota = list[0]; // Přečtení hodnoty prvku na libovolném indexu
+    list[0] = 10; // Modifikace prvku na libovolném indexu
+    list.RemoveAt(0); // Odebrání prvku na libovolném indexu
+    var pocet = list.Count; // Zjištění počtu prvků v seznamu
+    var kapacita = list.Capacity; // Zjištění kapacity seznamu
+}
+
+// Spojový seznam (linked list)
+{
+    // Spojový seznam je další způsob, jak řešit nevýhodu pevné velikosti pole. Umožňuje vkládat/odebírat prvky dynamicky.
+    // V praxy se příliš nepoužívá, protože dynamické pole je ve většině případů efektivnější.
+
+    // Spojový seznam je datová struktura, která uchovává prvky v uzlech, které jsou propojeny ukazateli.
+    // Každý uzel obsahuje hodnotu a ukazatel na následující uzel.
+
+    // Složitosti operací:
+    // Vložení prvku na konec: O(1).
+    // Přečtení prvku na indexu: O(n).
+
+    // V C# je spojový seznam implementován pomocí třídy LinkedList<T> z jmenného prostoru System.Collections.Generic.
+    var linkedList = new LinkedList<int>();
+    linkedList.AddLast(5); // Vložení prvku na konec seznamu
+    var hodnota = linkedList.First.Value; // Přečtení hodnoty prvního prvku
+    linkedList.AddFirst(10); // Vložení prvku na začátek seznamu
+    linkedList.RemoveFirst(); // Odebrání prvního prvku
+    linkedList.RemoveLast(); // Odebrání posledního prvku
+}
+
+// Zásobník (stack)
+{
+    // Zásobník je dynamická datová struktura, která umožňuje vkládání a odebírání prvků pouze na začátku.
+    // Poslední vložený prvek do zásobníku je také první odebraný prvek (jako zásobník u zbraně).
+    // Říkáme, že zásobník pracuje podle principu LIFO (last in, first out).
+
+    // Příklad využití: zásobník pro ukládání historie v prohlížeči
+
+    // Možné operace nad zásobníkem:
+    // Vložení prvku na vrchol zásobníku (push)
+    // Odebrání prvku z vrcholu zásobníku (pop)
+    // Přečtení hodnoty prvku na vrcholu zásobníku - bez odebrání (peek, top)
+    // Zjištění počtu prvků v zásobníku
+
+    // V C# je zásobník implementován pomocí třídy Stack<T> z jmenného prostoru System.Collections.Generic
+    var stack = new Stack<int>();
+    stack.Push(5); // Vložení prvku na vrchol zásobníku
+    var hodnota = stack.Pop(); // Odebrání prvku z vrcholu zásobníku
+    hodnota = stack.Peek(); // Přečtení hodnoty prvku na vrcholu zásobníku - bez odebrání
+    var pocet = stack.Count; // Zjištění počtu prvků v zásobníku
+}
+
+// Fronta (queue)
+{
+    // Fronta je dynamická datová struktura, která umožňuje vkládání prvků na konec a odebírání prvků z začátku.
+    // První vložený prvek do fronty je také první odebraný prvek (jako fronta u pokladny).
+    // Říkáme, že fronta pracuje podle principu FIFO (first in, first out).
+
+    // Příklad využití: fronta pro zpracování požadavků na serveru, fronta pro tisk dokumentů
+    // Fronty se obecně používají, pokud máme dva programy s různou rychlostí zpracování dat. Mezi nimi je fronta, která
+    // vyrovnává tyto rychlosti (této frontě se říká buffer - vyrovnávací paměť).
+
+    // Možné operace nad frontou:
+    // Vložení prvku na konec fronty (enqueue)
+    // Odebrání prvku z začátku fronty (dequeue)
+    // Přečtení hodnoty prvku na začátku fronty - bez odebrání (front, peek)
+    // Zjištění počtu prvků ve frontě
+
+    // V C# je fronta implementována pomocí třídy Queue<T> z jmenného prostoru System.Collections.Generic
+    var queue = new Queue<int>();
+    queue.Enqueue(5); // Vložení prvku na konec fronty
+    var hodnota = queue.Dequeue(); // Odebrání prvku z začátku fronty
+    hodnota = queue.Peek(); // Přečtení hodnoty prvku na začátku fronty - bez odebrání
+    var pocet = queue.Count; // Zjištění počtu prvků ve frontě
+}
+
+// Slovník (dictionary, hash table)
+{
+    // Slovník je datová struktura, která uchovává prvky ve formě klíč-hodnota. Klíče musí být unikátní, hodnoty se
+    // mohou opakovat. Analogie je např. rejsřík na konci knihy: klíč je slovo, hodnota jsou stránky, kde se slovo
+    // vyskytuje. Jinými slovy se jedná o pole, které je indexované libovolným typem namísto integeru od nuly.
+
+    // Jako klíč by se měl použít datový typ, který nelze měnit (immutable) - tzn. hodnotové typy, nebo např. string.
+    // Pokud by se totiž hodnota klíče v čase měnila, tak by již nebylo možné najít odpovídající hodnotu.
+
+    // Vlastní třídy můžeme také použít jako klíče, ale musíme zajistit, aby byly správně implementovány metody Equals a GetHashCode.
+    // Také bychom měli zajistit neměnitelnost pomocí zapouzdření.
+
+    // Příklad využití: překlad slov, ukládání konfigurace aplikace, atd.
+    // V praxi se používají velmi často, protože umožňují velmi rychlé mapování dvou typů hodnot.
+
+    // Složitosti operací:
+    // Vložení prvku: O(1).
+    // Přečtení hodnoty podle klíče: O(1).
+
+    // Možné operace nad slovníkem:
+    // Vložení prvku do slovníku
+    // Přečtení hodnoty podle klíče
+    // Modifikace hodnoty podle klíče
+    // Odebrání prvku podle klíče
+
+    // V C# je slovník implementován pomocí třídy Dictionary<TKey, TValue> z jmenného prostoru System.Collections.Generic
+    var slovnik = new Dictionary<string, int>(); // Klíčem je string, hodnotou je integer
+    slovnik.Add("jedna", 1); // Vložení prvku do slovníku
+    var hodnota = slovnik["jedna"]; // Přečtení hodnoty podle klíče
+    slovnik["jedna"] = 2; // Modifikace hodnoty podle klíče
+    slovnik.Remove("jedna"); // Odebrání prvku podle klíče
+    slovnik.ContainsKey("jedna"); // Zjištění, zda slovník obsahuje klíč
+}

@@ -1,0 +1,149 @@
+﻿// ----------------------------
+// Položky (fieldy) třídy
+// ----------------------------
+
+// Položky třídy jsou proměnné, které jsou deklarované uvnitř třídy.
+public class Osoba
+{
+    public string Jmeno; // Položka pro jméno
+    public string Prijmeni;
+}
+
+// Ke všem částem třídy se přistupuje pomocí tečkové notace.
+var osoba = new Osoba();
+osoba.Jmeno = "Jan";
+
+// U položek ale nelze omezit přístup pouze pro čtení nebo pouze pro zápis.
+// Porušuje to tedy principy zapouzdření.
+
+// ----------------------------
+// Vlastnosti (property) třídy
+// ----------------------------
+
+// Vlastnosti jsou speciální členy třídy, které poskytují kontrolovaný přístup k datům.
+// Vlastnost se skládá ze dvou bloků (get - čtení a set - zápis)
+// Každý blok může mít vlastní modifikátor přístupu.
+public class Osoba2
+{
+    public string Jmeno { get; private set; } // Položka pro jméno, které nelze změnit zvenčí
+}
+
+// Vlastnosti se používají stejně jako položky:
+var osoba2 = new Osoba2();
+Console.WriteLine(osoba2.Jmeno);
+
+// Oba bloky jsou v podstatě funkce, které vracejí nebo nastavují hodnotu vlastnosti.
+// Můžeme tedy použít vlastnost jako např. mapování na položku.
+public class Osoba3
+{
+    private string jmeno; // Položka pro jméno
+
+    public string Jmeno 
+    {
+        get { return jmeno; }
+        private set { jmeno = value; } // Nastavit jméno je private
+    }
+}
+
+// ----------------------------
+// Abstraktní třída
+// ----------------------------
+
+// Abstraktní třída je třída, která nemůže být instancována.
+// Slouží jako základ pro odvozené třídy.
+// Dáváme tím jasně najevo, že instance této třídy nemá smysl
+// (nemůžeme vytvořit instanci obecné třídy zvíře - pouze jeho potomků: kočka, pes, atp.).
+public abstract class Zvire
+{
+    // Abstraktní třída může obsahovat abstraktní metody nebo vlastnosti bez implementace.
+    // Každý potomek třídy Zvire musí implementovat tuto metodu.
+    public abstract void VydavatZvuk();
+
+    // Tato vlastnost není abstraktní, takže ji potomci zdědí jak je.
+    public string Jmeno { get; private set; }
+
+    // Metoda se také dá označit jako virtual, což znamená, že ji potomek může přepsat.
+    public virtual void Popis()
+    {
+        Console.WriteLine("Jsem zvíře.");
+    }
+}
+
+public class Pes : Zvire
+{
+    // Třída Pes musí přepsat (override) metodu VydavatZvuk, protože nemá implementaci.
+    public override void VydavatZvuk()
+    {
+        Console.WriteLine("Haf");
+    }
+
+    public override void Popis()
+    {
+        // Přepsaná virtuální metoda může volat metodu z předka.
+        base.Popis();
+
+        // A následně např. něco doplnit.
+        Console.WriteLine("Konkrétně pes.");
+    }
+}
+
+// ----------------------------
+// Rozhraní - interface
+// ----------------------------
+
+// Rozhraní je tzv. čistá abstraktní třída, tzn. třída která neobsahuje žádné implementace.
+// Jedná se tedy pouze o soubor metod a vlastností, které musí třída mít. Říkame, že třída >implementuje< rozhraní.
+// C# nepodporuje vícenásobnou dědičnost (každá třída musí mít maximálně jednoho předka).
+// Rozhraní jsou způsobem, jak toto omezení obejít. 
+
+// Rozhraní pro všechny tvary, které mají obsah
+public interface IMaObsah
+{
+    // Obsah je možné vypočítat
+    // Modifikátor přístupu se nepoužívá, všechny metody a vlastnosti jsou public
+    double VypoctiObsah();
+}
+
+// Rozhraní pro všechny tvary, které mají obvod
+public interface IMaObvod
+{
+    // Obvod je možné vypočítat
+    double VypoctiObvod();
+}
+
+// Třída kruh implementuje obě rozhraní
+public class Kruh : IMaObsah, IMaObvod
+{
+    private double polomer;
+
+    public Kruh(double polomer)
+    {
+        this.polomer = polomer;
+    }
+
+    public double VypoctiObsah()
+    {
+        return Math.PI * polomer * polomer;
+    }
+
+    public double VypoctiObvod()
+    {
+        return 2 * Math.PI * polomer;
+    }
+}
+
+// Třída kružnice implementuje pouze rozhraní pro obvod
+public class Kruznice : IMaObvod
+{
+    private double polomer;
+
+    public Kruznice(double polomer)
+    {
+        this.polomer = polomer;
+    }
+
+    public double VypoctiObvod()
+    {
+        return 2 * Math.PI * polomer;
+    }
+}

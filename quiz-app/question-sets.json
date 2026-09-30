@@ -1,0 +1,15 @@
+{
+  "defaultSetId": "default",
+  "sets": [
+    {
+      "id": "default",
+      "label": "Původní sada (všechna témata)",
+      "file": "/questions.json"
+    },
+    {
+      "id": "manual-v2",
+      "label": "Ruční sada v2 (postupně po tématech)",
+      "file": "/questions.manual-v2.json"
+    }
+  ]
+}

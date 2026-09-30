@@ -1,0 +1,31 @@
+// Pro reprezentaci data a času v jazyce C# slouží struktura DateTime.
+// Struktura obsahuje velké množství užitečných metod pro práci s datem a časem.
+// Pro práci s datumem a čase samostatně lze použít struktury DateOnly a TimeOnly (ty se ale používají méně).
+{
+    DateTime ted = DateTime.Now; // Aktuální datum a čas
+    DateTime specifickeDatum = new DateTime(2023, 10, 16); // 16. října 2023
+    DateTime specifickyCas = new DateTime(2023, 10, 16, 14, 30, 0); // 16. října 2023, 14:30:00
+
+    // Formátování data a času
+    string formatovaneDatum = ted.ToString("dd.MM.yyyy"); // "16.10.2023"
+    string formatovanyCas = ted.ToString("HH:mm:ss"); // "14:30:00"
+
+    // Operace s datem a časem
+    DateTime zitra = ted.AddDays(1); // Přidání jednoho dne
+    TimeSpan rozdil = zitra - ted; // Rozdíl mezi dvěma daty
+}
+
+// Pro reprezentaci časového intervalu slouží struktura TimeSpan.
+{
+    TimeSpan interval = new TimeSpan(1, 30, 0); // 1 hodina, 30 minut, 0 sekund
+    TimeSpan dalsiInterval = TimeSpan.FromHours(2); // 2 hodiny
+
+    // Operace s časovými intervaly
+    TimeSpan celkem = interval + dalsiInterval; // Sčítání časových intervalů
+    TimeSpan rozdil = dalsiInterval - interval; // Odečítání časových intervalů
+
+    // Pokud odečteme dva datumy, získáme TimeSpan
+    DateTime ted = DateTime.Now;
+    DateTime zitra = ted.AddDays(1);
+    TimeSpan rozdilDatumu = zitra - ted; // Rozdíl mezi dvěma daty jako TimeSpan
+}

@@ -1,0 +1,26 @@
+// Struktura je uživatelsky definovaný hodnotový typ, pomocí kterého můžeme skládat více hodnot do jedné skupiny
+{
+    // V C# se pro definici struktury používá klíčové slovo struct
+    struct Point
+    {
+        // Všechny hodnoty mají název a datový typ
+        public int X; // Hodnota struktury, klíčové slovo public znamená, že položka je přístupná zvenčí
+        public int Y;
+    }
+}
+
+// Struktury se vytváří pomocí klíčového slova new
+{
+    var p = new Point(); // Vytvoření nové struktury Point
+
+    // K hodnotám struktury přistupujeme pomocí tečky
+    p.X = 10; // Přiřazení hodnoty do pole X
+    p.Y = 20; // Přiřazení hodnoty do pole Y
+}
+
+// Struktury jsou hodnotové typy, takže se předávají kopií
+{
+    var p2 = p; // Vytvoření kopie struktury p
+    p2.X = 30; // Modifikace kopie neovlivní původní strukturu
+    // p.X je stále 10
+}

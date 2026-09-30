@@ -1,0 +1,123 @@
+﻿// Co je to objektově orientované programování
+{
+    // Objektově orientované programování (OOP) tvoří strukturu programu pomocí objektů a tříd.
+    // Snaží se napodobit způsob, jakým lidé chápou svět kolem sebe. Vidíme objekty, které mají nějaké vlastnosti
+    // a nějaké chování. Vlastnosti a chování objektů je neoddělitelné.
+
+    // Příklad: pes má barvu, jméno a štěká. Nemůžeme např. vytvořit psa bez barvy.
+}
+
+// Vznik OOP
+{
+    // OOP vzniklo v 60. letech 20. století jako reakce na rostoucí složitost programů a potřebu zvýšit jejich
+    // přehlednost. OOP se snaží programy rozdělit na menší části (moduly, služby), které spolu komunikují.
+}
+
+// Paradigmata
+{
+    OOP je tzv. programovací paradigma: styl programování. Paradigmata se liší v tom, jak programy strukturujeme a Jaké
+    abstrakce používáme pro modelování problémů. Většina moderních programovacích jazyků paradigmata míchá dle potřeby,
+    vždy je ale vidět jedno, které se používá nejčastěji (pro Javu, C# a C++ je to OOP).
+
+    Další paradigmata jsou:
+    - Procedurální (imperativní) - např. jazyk C. Program jako kuchařka.
+    - Funkcionální - např. jazyky Haskell, OCaml, F#. Deklarativní program, který se čte jako matematika. Časté použití rekurze.
+}
+
+// Třídy a objekty
+{
+    // Třída je obecná kategorie (typ, vzor), podle které se vytváří konkrétní objekty. Říkáme, že objekt je instancí třídy.
+    // Pro vytvoření objektu se používá speciální metoda - konstruktor.
+
+    // Konstruktor třídy voláme pomocí klíčového slova new.
+
+    // Příklady tříd: pes, kočka, zaměstnanec, auto.
+    // Příklady objektů: pes Alík, kočka Míša, zaměstnanec Petr Novák
+
+    // Třídy existují po celou dobu běhu programu. Objekty vznikají a zanikají za běhu.
+}
+
+// Klíčové slovo static
+{
+    // Klíčové slovo static určuje, že daná vlastnost nebo chování se váže k třídě a ne k objektu.
+    // Nejde tedy o vlastnost konkrétního objektu, ale o vlastnost která platí pro celou kategorii objektů.
+    // Jinými slovy, statická hodnota je společná pro celý program. Nestatické hodnoty jsou specifické pro každý objekt.
+
+    // U tříd klíčové slovo static říká, že daná třída nemůže být použita jako šablona pro vytváření objektů => tato třída nemůže tvořit
+    // instance - objekty. Statické třídy jsou tedy pouze schránky pro metody a vlastnosti.
+
+    // Speciální metoda main(), která je vstupním bodem programu, musí být statická.
+}
+
+// Zapouzdření
+{
+    // Třídy mohou mít vnitřní stav, který je neviditelný nebo neměnný zvenčí.
+    // Používáme modifikátory přístupu: public, private, (protected, internal).
+
+    // Zapouzdření nám umožňuje, aby objekty byly vnitřně konzistentní.
+    // Příklad: máme třídu nákupní košík, ta má metodu pro přidání položky a vlastnost pro celkovou cenu.
+    // Pokud přidáme novou položku do košíku, ale nezvýšíme cenu, vytvořili jsme nekonzistentní stav.
+    // Řešením je vytvořit metodu pro přidání položky, která zároveň zvýší cenu.
+}
+
+// Vztahy mezi třídami - kompozice
+{
+    // Jedna třída obsahuje jinou (používáme slovíčko "má"). Tento vztah se nazývá kompozice - skládání.
+    // Můžeme takto skládat objekty jako lego kostky.
+    // Příklad: třída auto má třídu motor a třídu převodovka.
+}
+
+// Vztahy mezi třídami - dědičnost
+{
+    // Jedna třída je generalizací jiné třídy (používáme slovíčko "je"). Tento vztah se nazývá dědičnost: předek -> potomek.
+    // Příklad: třída auto je generalizace třídy vozidlo. Další generalizace je motorka nebo vlak.
+
+    // Potomci mohou třídu dále rozšiřovat o další vlastnosti a chování.
+    // Každé vozidlo má několik kol, ale pouze auto má volant. Motorka má řídítka atd.
+
+    // Protože každé auto zároveň >je< vozidlo, můžeme vytvořit proměnnou typu vozidlo a do ní uložit objekt typu auto.
+    // Opačně to ale nejde, ne každé vozidlo >je< auto.
+}
+
+// Typová zaměnitelnost - polymorfismus
+{
+    // Protože každé auto >je< současně vozidlem, můžeme např. vytvořit seznam vozidel a do něj uložit auta.
+    // Pro tuto typovou zaměnitelnost se používá termín polymorfismus: jeden typ se může "vydávat" za jiný.
+
+    var vozidla = new List<Vozidlo>
+    {
+        new Auto(),
+        new Motorka()
+    };
+
+    // Zde prijmeme libovolné vozidlo, třeba i vlak
+    void PridejVozidlo(Vozidlo vozidlo)
+    {
+        vozidla.Add(vozidlo);
+    }
+
+    // Zde prijmeme pouze auto
+    void PridejAuto(Auto auto)
+    {
+        vozidla.Add(auto);
+    }
+}
+
+// Hierarchie tříd
+{
+    // Vztahy mezi třídami můžeme dále libovolně kombinovat a vytvářet tzv. hierarchie tříd.
+    // Vozidlo -> MotoroveVozidlo -> Auto, Motorka
+    // Každé Vozidlo má kola, každé motorové vozidlo má motor, každé auto má převodovku atd.
+
+    class Vozidlo
+    {
+    }
+
+    class Auto : Vozidlo
+    {
+    }
+
+    class Motorka : Vozidlo
+    {
+    }
+}

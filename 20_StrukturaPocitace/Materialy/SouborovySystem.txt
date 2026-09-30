@@ -1,0 +1,149 @@
+// Co je to souborový systém
+{
+    // Souborovy systém je hierarchický systém, který má podobu stromu.
+    // Každý uzel stromu je adresář (složka) nebo soubor.
+    // Kořenový uzel stromu je označován jako root nebo kořenový adresář.
+    // Adresáře mohou obsahovat další adresáře a soubory.
+    // Soubory obsahují data, která mohou být libovolného typu (text, obrázek, zvuk, video, binární data),
+    // ve windows se typ souboru určuje podle přípony za tečkou (.txt, .docx, .xml, .csv, .jpeg, .png, .gif, .ico, .bmp).
+}
+
+// Cesty
+{
+    // Cesta k souboru nebo adresáři je posloupnost uzlů, které se musí projít, aby se došlo k cílovému uzlu.
+    // Uzly se oddělují znakem \ (zpětné lomítko). Zpětné lomítko je v jazyce C# \ speciální znak, musíme ho proto zdvojit.
+    // Příklad: 
+    var cesta = "C:\\Users\\kvet\\Dokumenty\\Koala.jpg";
+    // Cestu interpretujeme jako: V kořenovém adresáři C: najdi adresář Users,
+    // v něm najdi adresář kvet, v něm najdi adresář Dokumenty, v něm najdi soubor Koala.jpg.
+
+    // Cesta může vést i k adresáři:
+    var cestaKAdresari = "C:\\Users\\kvet\\Dokumenty";
+
+    // Předchozí příklad byla absolutní cesta. Absolutní cesta začíná vždy kořenovým adresářem.
+    // Existuje i relativní cesta. Relativní cesta začíná vždy aktuálním adresářem.
+    // Pokud cestu definujeme v programu, je aktuální adresář ten adresář, ve kterém se sestavený program nachazí.
+
+    // Relativní cesta může obsahovat možnost jdi o adresář výše, označovanou jako .. (dvě tečky).
+    // Příklad: 
+    var relativniCesta = "..\\..\\Koala.jpg";
+    // Cestu interpretujeme jako: V aktuálním adresáři jdi o jeden adresář výše, v něm jdi o jeden adresář výše,
+    // pak najdi soubor Koala.jpg.
+}
+
+// Práce se soubory v C#
+{
+    // Pro práci se soubory slouží třída System.IO.File:
+
+    // Zjisti, zda soubor na dané cestě existuje
+    bool souborExistuje = File.Exists("soubor.txt");
+
+    // Smaž soubor na dané cestě
+    File.Delete("soubor.txt");
+
+    // Níže uvedené metody slouží pro práci se soubory textového typu:
+
+    // Přečti soubor po řádcích do pole řetězců
+    string[] radkySouboru =  File.ReadAllLines("soubor.txt");
+
+    // Přečti soubor jako jeden řetězec
+    string obsahSouboru = File.ReadAllText("soubor.txt");
+
+    // Otevři soubor a přidej na jeho konec další text (pokud soubor neexistuje, bude vytvořen)
+    File.AppendAllText("soubor.txt", "Poznámka na konec");
+
+    // Otevři soubor a přidej na jeho konec další řádky definované polem řetězců (pokud soubor neexistuje, bude vytvořen)
+    File.AppendAllLines("soubor.txt", new string[] {"Řádek1", "Řádek2"});
+
+    // Otevři soubor a zapiš do něj text (pokud soubor neexistuje, bude vytvořen; pokud existuje, bude přepsán)
+    File.WriteAllText("soubor.txt", "Obsah souboru");
+
+    // Otevři soubor a zapiš do něj řádky (pokud soubor neexistuje, bude vytvořen; pokud existuje, bude přepsán)
+    File.WriteAllLines("soubor.txt", new string[] { "Řádek1", "Řádek2" });
+
+    // Vlastnosti souboru
+    var nazev = new FileInfo("soubor.txt").Name;
+    var pripona = new FileInfo("soubor.txt").Extension;
+    var velikost = new FileInfo("soubor.txt").Length;
+}
+
+// Práce s adresáři v C#
+{
+    // Pro práci s adresáři slouží třída System.IO.Directory:
+
+    // Zjisti, zda adresář na dané cestě existuje
+    bool adresarExistuje = Directory.Exists("C:\\users\\kvet\\Documenty");
+
+    // Vrátí seznam souborů v daném adresáři
+    string[] soubory = Directory.GetFiles("C:\\users\\kvet\\Documenty");
+
+    // Vrátí seznam podadresářů v daném adresáři
+    string[] podadresare = Directory.GetDirectories("C:\\users\\kvet\\Documenty");
+
+    // Vlastnosti adresáře
+    var nazev = new DirectoryInfo("C:\\users\\kvet\\Documenty").Name;
+    var rodic = new DirectoryInfo("C:\\users\\kvet\\Documenty").Parent;
+}
+
+// Streamování souborů
+{
+    // Streamování souborů je způsob, jak číst a zapisovat data do souboru po částech.
+    // Streamování souborů je efektivnější než načítání celého souboru do paměti, pokud soubor obsahuje velké množství dat.
+
+    // Pro streamování souborů slouží třídy StreamWriter a StreamReader:
+
+    // Zápis do souboru
+    using (StreamWriter sw = new StreamWriter("soubor.txt"))
+    {
+        sw.WriteLine("Řádek1");
+        sw.WriteLine("Řádek2");
+    }
+
+    // Čtení ze souboru
+    using (StreamReader sr = new StreamReader("soubor.txt"))
+    {
+        string radek;
+        while ((radek = sr.ReadLine()) != null)
+        {
+            Console.WriteLine(radek);
+        }
+    }
+
+    // Streamování souborů pracuje s tzv. buffery - frontami, které data na disk zapisují postupně.
+    // Při zápisu do souboru se data nezapisují okamžitě na disk, ale do bufferu - důvodem je pomalá rychlost zápisu na disk.
+
+    // Buffer umožňuje zapsat data na disk na vyžádání (tzn. propsat celou frontu na disk).
+    // Defaultní velikost bufferu je 1kB.
+
+    var sw2 = new StreamWriter("soubor.txt");
+    sw2.AutoFlush = true; // Při nastavení na true se buffer automaticky vyprázdní po každém zápisu
+    sw2.Flush(); // Vyprázdní buffer a zapiše data na disk
+}
+
+// Zámky
+{
+    // Operační systém má v sobě mechanismus pro kontrolu integrity dat v souborovém systému. 
+    // Používá k tomu tzv. zámky (lock, handle). Zámek je speciální objekt, který zabraňuje jiným procesům v přístupu k souboru.
+    // Příklad: Pokud jeden proces otevře soubor pro zápis, druhý proces nemůže soubor otevřít pro zápis, dokud první proces soubor neuzavře.
+    // Ve výchozím stavu jsou všechny zámky exkluzivní, můžeme ale nastavit pravidla pro sdílení (vhodné pouze pro výjimečné).
+
+    // Příklad níže demonstruje sdílení souboru pro čtení mezi dvěma procesy:
+
+    // Otevřeme soubor pro čtení s tím, že soubor můžeme sdílet (2x)
+    var file1 = File.Open("c:\\Users\\kvet\\foo.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+    var sr1 = new StreamReader(file1);
+    var file2 = File.Open("c:\\Users\\kvet\\foo.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+    var sr2 = new StreamReader(file2);
+
+    var text = sr1.ReadToEnd();
+    var text2 = sr2.ReadToEnd();
+
+    // Ověříme, že texty jsou stejné
+    Debug.Assert(text == text2);
+
+    // Uvolníme zámky na soubory
+    file1.Dispose();
+    sr1.Dispose();
+    file2.Dispose();
+    sr2.Dispose();
+}

@@ -1,0 +1,15 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Node.js
+**/node_modules/
+**/dist/
+
+# IDE and operating system files
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+.DS_Store

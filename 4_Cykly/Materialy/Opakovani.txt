@@ -1,0 +1,108 @@
+// Pro opakování kódu používáme cykly, skoky a rekurze.
+// Většina jazyků má více typů cyklů:
+
+// Cyklus foreach: je nejjednoduší, používá se pro procházení všech prvků kolekce. Nevýhodou je, že neznáme
+// index prvků.
+{
+    var pole = new int[] { 1, 2, 3, 4, 5 };
+
+    // Vypíšeme všechny prvky pole
+    foreach (var prvek in pole)
+    {
+        Console.WriteLine(prvek);
+    }
+}
+
+// Cyklus while: používáme, pokud neznáme počet iterací dopředu. Cyklus while má jednu podmínku, která se
+// vyhodnocuje na začátku každé iterace.
+{
+    // Dokud je čas středa, vypisujeme, že je středa.
+    // Pokud středa není, cyklus se neprovede ani jednou.
+    while (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+    {
+        Console.WriteLine("Je středa.");
+    }
+
+    // Cyklus while může být i nekonečný:
+    /*while (true)
+    {
+        // Tento cyklus nikdy neskončí.
+    }*/
+}
+
+// Cyklus do-while: je podobný cyklu while, ale podmínka se vyhodnocuje až na konci každé iterace.
+// Tento cyklus se tedy provede vždy alespoň jednou.
+{
+    int citac = 5;
+    int faktorial = 1;
+
+    do
+    {
+        faktorial = faktorial * citac;
+        citac--;
+    } while (citac > 0);
+}
+
+// Cyklus for: používáme, pokud chceme znát index iterace. Cyklus for má tři části: inicializaci, podmínku a
+// iteraci.
+{
+    // Jako iterátor použijeme proměnnou i, které přiřadíme hodnotu 0.
+    // Cyklus bude pokračovat, dokud bude i menší než 5.
+    // Po každé iteraci se i zvětší o 1.
+    for (int i = 0; i < 5; i++)
+    {
+        Console.WriteLine(i);
+    }
+
+    // Nevýhodou cyklu for je, že můžeme udělat chybu v indexu a způsobit přetečení pole.
+}
+
+// Skoky jsou ve většině moderních jazyků omezené, protože znepřehledňují kód. V jazyce C# můžeme použít
+// skoky pomocí klíčových slov break, continue a return, a to pouze v omezených případech.
+{
+    // Klíčové slovo break ukončí cyklus okamžitě:
+    while (true)
+    {
+        if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+        {
+            break;
+        }
+    }
+
+    // Klíčové slovo continue ukončí aktuální iteraci a pokračuje další:
+    for (int i = 0; i < 5; i++)
+    {
+        // Přeskočíme výpis čísla 3.
+        if (i == 3)
+        {
+            continue;
+        }
+
+        Console.WriteLine(i);
+    }
+
+    // Klíčové slovo return okamžitě ukončí funkci a vrátí hodnotu (i uprostřed cyklu):
+    {
+        int VratCislo()
+        {
+            while (true)
+            {
+                return 42;
+            }
+        }
+    }
+}
+
+// Rekurze se obecně definuje jako "reference na sebe". V případě funkcí je to případ, kdy funkce volá sama sebe,
+// dokud není splněna podmínka ukončení. Dá se tedy použít jako forma opakování.
+{
+    // Výhodou rekurze je přehlednost a stručnost kódu, nevýhodou je o trochu větší náročnost na paměť a výkon.
+
+    // Neukončená rekurze selže na přetečení zásobníku:
+    int NeukoncenaRekurze(int vstup)
+    {
+        return NeukoncenaRekurze(vstup) + 1;
+    }
+
+    // Rekurze může být i nepřímá, pokud funkce volá sama sebe přes jinou funkci (může jich být i více).
+}

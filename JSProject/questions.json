@@ -1,0 +1,170 @@
+{
+  "title": "Web quiz – HTML, CSS, JavaScript",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Který HTML tag obalí hlavní nadpis stránky (nejvyšší úroveň)?",
+      "options": ["<h1>", "<title>", "<header>", "<head>"],
+      "correctIndex": 0
+    },
+    {
+      "id": 2,
+      "question": "Kam v HTML dokumentu patří odkazy na externí CSS soubory?",
+      "options": [
+        "Do <body> na začátek",
+        "Do <head> pomocí <link rel=\"stylesheet\">",
+        "Do <footer>",
+        "Do komentáře <!-- css -->"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 3,
+      "question": "Který atribut u <img> je povinný kvůli přístupnosti a SEO (popis obrázku)?",
+      "options": ["src", "alt", "width", "class"],
+      "correctIndex": 1
+    },
+    {
+      "id": 4,
+      "question": "Co znamená zkratka CSS?",
+      "options": [
+        "Computer Style Sheets",
+        "Cascading Style Sheets",
+        "Creative Style System",
+        "Content Structure Syntax"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 5,
+      "question": "Který selektor vybere všechny elementy s třídou \"btn\"?",
+      "options": ["#btn", ".btn", "btn", "*btn"],
+      "correctIndex": 1
+    },
+    {
+      "id": 6,
+      "question": "Která vlastnost mění barvu textu?",
+      "options": ["background-color", "font-weight", "color", "border-color"],
+      "correctIndex": 2
+    },
+    {
+      "id": 7,
+      "question": "Co dělá `display: flex` na rodičovském elementu?",
+      "options": [
+        "Skryje všechny potomky",
+        "Zapne flexbox layout pro uspořádání potomků",
+        "Změní font na flexibilní",
+        "Přidá ohraničení kolem textu"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 8,
+      "question": "Jaký je správný způsob připojení JavaScriptu na konec stránky (doporučená praxe)?",
+      "options": [
+        "<script src=\"app.js\"></script> před </body>",
+        "<javascript src=\"app.js\">",
+        "CSS @import v <head>",
+        "Pouze inline <style>"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 9,
+      "question": "Jaký typ má výraz `typeof 42` v JavaScriptu?",
+      "options": ["string", "number", "boolean", "object"],
+      "correctIndex": 1
+    },
+    {
+      "id": 10,
+      "question": "Který operátor porovná hodnotu i typ (striktní rovnost)?",
+      "options": ["==", "===", "!=", "="],
+      "correctIndex": 1
+    },
+    {
+      "id": 11,
+      "question": "Co vypíše `console.log('5' + 2)`?",
+      "options": ["7", "52", "5 2", "chyba"],
+      "correctIndex": 1
+    },
+    {
+      "id": 12,
+      "question": "Která metoda pole přidá prvek na konec?",
+      "options": ["push()", "pop()", "shift()", "unshift()"],
+      "correctIndex": 0
+    },
+    {
+      "id": 13,
+      "question": "Co dělá `document.getElementById('quiz')`?",
+      "options": [
+        "Vrátí první element s daným id",
+        "Vrátí všechny elementy se třídou quiz",
+        "Smaže element z DOM",
+        "Vytvoří nový <div>"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 14,
+      "question": "Která událost se spustí po kliknutí na tlačítko?",
+      "options": ["load", "click", "submit", "keydown"],
+      "correctIndex": 1
+    },
+    {
+      "id": 15,
+      "question": "Co je `localStorage` v prohlížeči?",
+      "options": [
+        "Dočasná paměť jen do zavření záložky",
+        "Trvalé úložiště klíč–hodnota v prohlížeči",
+        "SQL databáze na serveru",
+        "Síťový protokol pro HTTP"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 16,
+      "question": "Který HTTP status kód obvykle znamená „úspěch“?",
+      "options": ["404", "500", "200", "301"],
+      "correctIndex": 2
+    },
+    {
+      "id": 17,
+      "question": "Co znamená DOM?",
+      "options": [
+        "Document Object Model",
+        "Data Output Method",
+        "Dynamic Online Module",
+        "Desktop Operating Memory"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 18,
+      "question": "Která vlastnost CSS ovlivňuje mezeru uvnitř elementu (padding vs margin)?",
+      "options": [
+        "margin – vnitřní odsazení od okraje elementu",
+        "padding – vnitřní odsazení od okraje elementu",
+        "border-radius – tloušťku rámečku",
+        "z-index – pořadí vrstev"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 19,
+      "question": "Jak v JavaScriptu zastavíš výchozí chování odkazu při kliknutí (např. `#`)?",
+      "options": [
+        "event.preventDefault()",
+        "event.stopPropagation() pouze",
+        "return true v handleru",
+        "location.reload()"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 20,
+      "question": "Který formát je vhodný pro uložení seznamu otázek, který načteš přes `fetch()`?",
+      "options": ["CSV v binárním režimu", "JSON", "EXE", "ZIP bez rozbalení"],
+      "correctIndex": 1
+    }
+  ]
+}

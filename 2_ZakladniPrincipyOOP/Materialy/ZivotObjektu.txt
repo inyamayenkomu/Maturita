@@ -1,0 +1,23 @@
+﻿// Objekty se dají vytvoři pomocí klíčového slova new
+// Toto klíčové slovo volá tzv. konstruktor: speciální metodu pro vytvoření objektu
+var objekt = new String("Ahoj");
+
+// Jak ale objekty zanikají?
+// Jeden ze základních rozdílů mezi programovacími jazyky je to, jak se starají o paměť.
+// V některých jazycích je nutné paměť uvolňovat ručně (např. C, C++).
+// C++ má operátor delete, který volá speciální metodu: destruktor. Ta se stará o korektní uvolnění paměti.
+// Pokud programátor uvolnění paměti opomene, dojde k tzv. memory leaku - paměť zůstane zabraná,
+// ale program už s ní nepracuje.
+
+// Jiné jazyky se o uvolňování paměti starají automaticky (např. C#, Java, Python).
+// Tyto jazyky destruktor nemají, protože se o uvolnění paměti stará tzv. garbage collector.
+
+// Garbage collector je speciální část programu, která pravidelně prochází paměť a hledá objekty,
+// na které už neexistuje žádná reference (odkaz). Tyto objekty jsou speciálně označeny a následně uvolněny.
+// Pokud tedy v C# smažeme všechny reference na objekt, garbage collector se postará o jeho uvolnění sám.
+
+// V našem případě uvedeném výše je jediná reference na objekt, který jsme vytvořili proměnná objekt.
+// Tato proměnná zanikne na konci bloku, ve kterém byla vytvořena (v našem případě na konci metody Main).
+// Jakmile zanikne, objekt se označí jako nepotřebný a garbage collector jej smaže.
+
+// Tomuto algoritmu se říká reference counting.

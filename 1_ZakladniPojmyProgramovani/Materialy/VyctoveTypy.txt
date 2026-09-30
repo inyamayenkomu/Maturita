@@ -1,0 +1,17 @@
+// Výčtové typy (enumerace) jsou speciální datové typy, které umožňují definovat sadu pojmenovaných
+// konstant. Používají se pro zlepšení čitelnosti kódu a omezení hodnot, které může proměnná nabývat.
+// V C# se výčtové typy definují pomocí klíčového slova enum.
+{
+    public enum DenVTydnu
+    {
+        Pondeli,
+        Utery,
+        Streda,
+        Ctvrtek,
+        Patek,
+        Sobota,
+        Nedele
+    }
+
+    var den = DenVTydnu.Pondeli;
+}

@@ -1,0 +1,132 @@
+1. Základní pojmy programování
+Definujte pojmy algoritmus, program, datový typ, proměnná, deklarace. Popište strukturu
+programu v jazyce C# a řízení toku programu. Vyjmenujte základní datové typy jazyka C#.
+Jaký je rozdíl mezi hodnotovým a referenčním datovým typem? Co je to oblast platnosti
+proměnné?
+Příklad.
+2. Základní principy a pojmy OOP
+Definujte pojmy třída, objekt, abstrakce, zapouzdření, datový člen, metoda, konstruktor,
+dědičnost, polymorfismus. Popište způsob komunikace mezi objekty, uveďte příklad.
+Srovnejte objektově orientované a procedurální programování.
+Příklad.
+3. Větvení a operátory
+Vysvětlete pojmy větvení a skok. Popište základní typy větvení v jazyce C#. Co je to
+operátor? Popište operátory dle typů (aritmetické, logické, porovnávací a přiřazovací) a
+počtu argumentů (unární, binární, ternární). Uveďte příklady, kdy je vhodné jednotlivé
+operátory použít.
+Příklad.
+Stránka 2 z 4
+4. Cykly
+Popište význam cyklu a syntaxi různých typů cyklů v jazyce C#. Nakreslete vývojový
+diagram cyklu. Popište vztah cyklu a pole. Co to je nekonečný cyklus a jaká nebezpečí
+představuje? Uveďte příklady užití cyklů.
+Příklad.
+5. Rekurze
+Vysvětlete pojem a princip fungování rekurze. Aplikace rekurze. Jaké typy rekurze znáte?
+Výhody a nevýhody rekurze. Uveďte příklady využití a odstranění rekurze. Jaký je vztah
+rekurze a zásobníku?
+Příklad.
+6. Číselné soustavy
+Objasněte pojem číselná soustava. Využití číselných soustav v informatice. Jaké standardy
+pro zápis se používají? Význam dvojkové soustavy v informatice. Převody mezi číselnými
+soustavami.
+Příklad.
+7. Složitost algoritmu a optimalizace
+Co je to složitost algoritmu a k čemu se používá? Vyjmenujte nejčastější třídy složitostí. Co
+je to optimalizace? Jaký má výběr programovacího jazyka vliv na rychlost programu?
+Příklad.
+8. Řadící algoritmy
+Popište řazení vkládáním (Insert Sort), výběrem (Select Sort), bublinkové (Bubble Sort),
+rozdělováním (Quick Sort). Demonstrujte řazení na zvolené číselné posloupnosti, popište
+implementaci.
+Příklad.
+9. Kolekce
+Definujte pojmy kolekce, dynamické pole, seznam, zásobník, fronta, slovník. Popište jejich
+rozhraní a operace. Uveďte výhody a příklady aplikace jednotlivých typů kontejnerů.
+Příklad.
+10. Ladění programu
+Popište rozdíl mezi syntaktickou a logickou chybou v programu. Co jsou to výjimky a jak se
+s nimi pracuje? Jak výjimky organizujeme? Vyjmenujte několik typů výjimek. Jaké nástroje
+se dají použít na ladění chyb v programu?
+Příklad.
+11. Desktopové aplikace
+Popište strukturu desktopové aplikace. Definujte pojem událost. Vyjmenujte základní
+ovládací prvky a způsoby jejich využití. Uveďte příklady využití ovládacích prvků. K čemu
+slouží dialogová okna, jaké druhy dialogových oken znáte?
+Příklad.
+Stránka 3 z 4
+12. Relační databáze
+Co znamená pojem relační databáze? Definujte pojmy tabulka, atribut, záznam, primární
+a cizí klíč, integritní omezení. Jaké typy atributů znáte? Definujte pojem transakce, v čem
+spočívá význam transakcí?
+Příklad.
+13. Textový editor
+Popište význam a možnosti textových editorů. Předveďte formátování odstavců, oddílů,
+stránek, celého dokumentu. Popište a demonstrujte výhody použití stylů. Vysvětlete
+pojmy prostý text a formátovaný text, jaké jsou jejich výhody? Vysvětlete pojem kódování
+textu.
+Příklad.
+14. Tabulkový procesor
+Popište význam a možnosti tabulkových procesorů. Objasněte a předveďte využití vzorců,
+relativních a absolutních odkazů. Demonstrujte práci s grafem v tabulkovém procesoru.
+Vysvětlete souborový formát CSV.
+Příklad.
+15. Počítačové sítě a Internet
+Objasněte pojmy Intranet, Internet, WiFi, Ethernet, IP, TCP/IP, doména, DNS. Popište
+způsoby komunikace peer-to-peer, client-to-server, jejich výhody a nevýhody. Objasněte
+problematiku dynamických a statických IP adres.
+Příklad.
+16. Web a Internetové prohlížeče
+Co je to Internetový prohlížeč a k čemu slouží? Jaká je jeho role na bezpečnost na
+Internetu? Vyjmenujte nejpoužívanější prohlížeče a jejich základní funkce. Vysvětlete
+pojmy cookies, web, URL, HTTP, HTTPS, cache. Jak funguje historie v prohlížeči?
+Příklad.
+17. HTML a CSS
+Objasněte pojmy HTML, značka, atribut. Popište základní strukturu HTML dokumentu,
+demonstrujte základní prvky – odstavce, odkazy, obrázky, seznamy. Vysvětlete pojem CSS
+a popište, jak funguje. Možnosti napojení CSS do HTML. Popište pojmy třída a identifikátor.
+Jak funguje dědičnost kaskádových stylů?
+Příklad.
+18. JavaScript
+Popište vlastnosti, výhody a nevýhody jazyka JavaScript. Jak se dá JavaScript použít v HTML
+dokumentu? Jaké datové typy JavaScript podporuje? Popište pojmy kompilace, transpilace
+a interpretace.
+Příklad.
+19. Kybernetická bezpečnost
+Objasněte pojmy počítačový vir, spyware, phishing, spam, ransomware. V čem spočívá
+nebezpečí jednotlivých hrozeb? Popište způsoby obrany proti jednotlivým bezpečnostním
+hrozbám. Objasněte pojem DoS útok a princip jeho fungování. Co je to end-to-end
+šifrování?
+Příklad.
+Stránka 4 z 4
+20. Struktura počítače
+Popište strukturu počítače a komponenty: základní deska, procesor, operační paměť,
+grafická karta, zvuková karta, síťová karta. Na jakém principu pracuje procesor? Jaké druhy
+pamětí znáte? Porovnejte stolní počítač, notebook a smartphone.
+Příklad.
+21. Vstupní a výstupní zařízení
+Jak počítač komunikuje s okolním světem? Vyjmenujte základní vstupní a výstupní zařízení
+počítače. Popište pojmy LCD, OLED, HDMI, USB.
+Příklad.
+22. Souborový systém a nosiče informací
+Jak funguje organizace souborů v počítači? Popište rozdíl mezi absolutní a relativní cestou.
+Uveďte příklady typů souborů. Popište nosiče informací a jejich možnosti: HDD, SSD, CD,
+DVD, Blu-ray, flash disk.
+Příklad.
+23. Operační systémy
+Vyjmenujte několik nejpoužívanějších typů operačních systémů. Jaká je role operačního
+systému v počítači? Co je to multitasking? Popište odlišnosti mezi operačními systémy
+určené pro PC a pro mobilní zařízení.
+Příklad.
+24. Testování software
+Vysvětlete hlavní cíle testování SW. Popište základní druhy testování (jednotkové,
+integrační, systémové) a jejich výhody a nevýhody. Jaký je rozdíl mezi funkčním a
+nefunkčním testováním? Vysvětlete pojmy black-box, white-box a explorativní testování.
+Jaké informace je potřeba při reportování chyby uvádět?
+Příklad.
+25. Metodika vývoje software
+Popište etapy životního cyklu aplikace (analýza požadavků, návrh systému, implementace,
+testování, nasazení a údržba). Popište princip agilních metod vývoje a porovnejte je s
+vodopádovým modelem. Uveďte výhody a nevýhody obou metodik. Co je to verzovací
+systém a jakou má roli při vývoji software?
+Příklad.
